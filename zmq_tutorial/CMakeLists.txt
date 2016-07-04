@@ -7,3 +7,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp -W -Wall")
 
 add_executable(hwserver zmq_rep_server.cpp)
 target_link_libraries(hwserver zmq)
+
+add_executable(hwserver_2 zmq_req_server.cpp)
+target_link_libraries(hwserver_2 zmq)
