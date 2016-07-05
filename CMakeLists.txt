@@ -12,3 +12,4 @@ add_definitions("-Wno-sign-compare")
 project(ProjLenaky)
 
 add_subdirectory(zmq_tutorial)
+add_subdirectory(basic)
