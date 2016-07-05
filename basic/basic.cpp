@@ -30,6 +30,5 @@ int main(void)
     std::cout << "----------" << std::endl;
     SomeClass s1();
     std::cout << "----------" << std::endl;
-
     return 0;
 }
