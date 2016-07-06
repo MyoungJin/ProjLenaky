@@ -40,3 +40,6 @@ add_executable(hwserver_5 zmq_rep_server_reverse.cpp)
 target_link_libraries(hwserver_5 zmq)
 # 바보짓했다. REQ-REP는 서버/클라이언트 개념으로 접근할 문제가 아니었다.
 # 단지 순서의 문제이다.
+
+add_executable(hwserver_6 zmq_req_rep_conclusion.cpp)
+target_link_libraries(hwserver_6 zmq)
