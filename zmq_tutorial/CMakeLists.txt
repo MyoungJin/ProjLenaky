@@ -43,3 +43,7 @@ target_link_libraries(hwserver_5 zmq)
 
 add_executable(hwserver_6 zmq_req_rep_conclusion.cpp)
 target_link_libraries(hwserver_6 zmq)
+
+# Publisher-Subscriber 패턴
+add_executable(pubsub zmq_pub_sub.cpp)
+target_link_libraries(pubsub zmq)
