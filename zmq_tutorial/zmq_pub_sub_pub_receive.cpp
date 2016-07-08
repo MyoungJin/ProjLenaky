@@ -98,6 +98,13 @@ public:
         return msock->send(msg);
     }
 
+    std::string zrecv()
+    {
+        zmq::message_t msg;
+        msock->recv(&msg);
+        return std::string(static_cast<char*>(msg.data()), msg.size());
+    }
+
     void run()
     {
         if (mszAddr == nullptr)
@@ -118,6 +125,16 @@ public:
 
             zsend(sdelim, 1, true);
             zsend(second, strlen(second));
+
+            std::cout << "RECV TRY" << std::endl;
+            std::cout << zrecv() << std::endl;
+            std::cout << "RECV TRY" << std::endl;
+            std::cout << zrecv() << std::endl;
+            std::cout << "RECV TRY" << std::endl;
+            std::cout << zrecv() << std::endl;
+            std::cout << "RECV TRY" << std::endl;
+            std::cout << zrecv() << std::endl;
+            std::cout << "RECV TRY" << std::endl;
 
             usleep(1000 * 1000);
         }
@@ -176,20 +193,22 @@ private:
 
 int main ()
 {
-    ZPublisher pub("tcp://localhost:5252");
+    ZPublisher pub("tcp://*:5252");
     ZSubscriber sub1("tcp://localhost:5252");
-    ZSubscriber sub2("tcp://*:5252");
+    ZSubscriber sub2("tcp://localhost:5252");
 
-    pub.zconnect();
+    pub.zbind();
+
     sub1.zconnect();
-    sub2.zbind();
+    sub2.zconnect();
+
     sub1.setScriberDelim("1", 1);
     sub2.setScriberDelim("2", 1);
 
     pub.start();
     std::cout << "PUB Server has been started.." << std::endl;
 
-    //usleep(1000 * 1000);
+    usleep(1000 * 1000);
 
     sub1.start();
     std::cout << "SUB1 Start." << std::endl;

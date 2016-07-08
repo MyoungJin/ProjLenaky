@@ -48,6 +48,10 @@ target_link_libraries(hwserver_6 zmq)
 add_executable(pubsub zmq_pub_sub.cpp)
 target_link_libraries(pubsub zmq)
 
-# Publisher-Subscriber 패턴 2 서버 클라이언트는 의미가 없다를 확인하기 위한.
+# Publisher-Subscriber 패턴 2. 서버 클라이언트는 의미가 없다를 확인하기 위한.
 add_executable(pubsub2 zmq_pub_sub_sc_switched.cpp)
 target_link_libraries(pubsub2 zmq)
+
+# Publisher-Subscriber 패턴 3. Pub도 수신이 가능할까?
+add_executable(pubsub3 zmq_pub_sub_pub_receive.cpp)
+target_link_libraries(pubsub3 zmq)
