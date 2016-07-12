@@ -55,3 +55,11 @@ target_link_libraries(pubsub2 zmq)
 # Publisher-Subscriber 패턴 3. Pub도 수신이 가능할까?
 add_executable(pubsub3 zmq_pub_sub_pub_receive.cpp)
 target_link_libraries(pubsub3 zmq)
+
+# Push-Pull 패턴 server.
+add_executable(ppinq zmq_push_pull_inquirer.cpp zmq_push_pull.hpp)
+target_link_libraries(ppinq zmq)
+
+# Push-Pull 패턴 worker.
+add_executable(ppwork zmq_push_pull_worker.cpp zmq_push_pull.hpp)
+target_link_libraries(ppwork zmq)

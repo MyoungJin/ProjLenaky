@@ -9,7 +9,7 @@ add_definitions("-Wno-switch")
 add_definitions("-Wno-conversion-null")
 add_definitions("-Wno-sign-compare")
 
-project(ProjLenaky)
+project(ProjLenaky CXX)
 
 add_subdirectory(zmq_tutorial)
 add_subdirectory(basic)
