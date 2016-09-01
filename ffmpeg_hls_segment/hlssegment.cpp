@@ -170,6 +170,7 @@ main (int argc, char** argv)
             }
             astream->id = aidx;
             long long pts = av_rescale_q(aoffset, (AVRational){1, 16000}, (AVRational){1, 90000});
+            // mpeg2ts는 Audio 패킷의 경우 90000 단위로 동작한다. RTP에 실을 때 sample rate으로 동작하는 것과는 상이한 점
             packet.pts = pts;
         }
 
